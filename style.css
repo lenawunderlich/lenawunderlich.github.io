@@ -484,3 +484,176 @@ nav a.active {
     margin-top: 35px;
   }
 }
+
+/* MOBILE VERSION */
+
+@media (max-width: 700px) {
+
+  /* ALLGEMEIN */
+
+  body {
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 2.7rem;
+    line-height: 1.05;
+  }
+
+
+  /* NAVIGATION */
+
+  header {
+    padding: 22px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+  }
+
+
+  /* STARTSEITE */
+
+  .hero {
+    min-height: auto;
+    padding: 65px 6% 80px;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+
+  /* PHOTOGRAPHY */
+
+  .photography-page {
+    padding: 45px 5% 70px;
+  }
+
+  .photography-intro {
+    margin-bottom: 35px;
+  }
+
+  .photography-intro h1 {
+    font-size: 3rem;
+  }
+
+  .photo-grid {
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  .photo-item {
+    margin-bottom: 18px;
+    border-radius: 6px;
+  }
+
+
+  /* ABOUT ME */
+
+  .about-page {
+    padding: 45px 5% 70px;
+  }
+
+  .about-heading h1 {
+    margin-bottom: 25px;
+    font-size: 3rem;
+  }
+
+  .about-heading-line {
+    margin-bottom: 30px;
+  }
+
+  .about-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-image-wrapper {
+    order: -1;
+  }
+
+  .about-image {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+  }
+
+  .about-text {
+    max-width: none;
+  }
+
+  .about-text > p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .about-contact {
+    margin-top: 35px;
+  }
+
+
+  /* CV */
+
+  .cv-page {
+    padding: 45px 5% 70px;
+  }
+
+  .cv-heading h1 {
+    margin-bottom: 25px;
+    font-size: 3rem;
+  }
+
+  .cv-heading-line {
+    margin-bottom: 25px;
+  }
+
+  .cv-actions {
+    flex-direction: column;
+  }
+
+  .cv-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cv-viewer-container {
+    height: 70vh;
+    min-height: 480px;
+    padding: 0;
+  }
+
+
+  /* NORMALE INHALTSSEITEN */
+
+  .content {
+    padding: 45px 5% 70px;
+  }
+
+
+  /* FOOTER */
+
+  footer {
+    padding: 25px 5%;
+  }
+}
