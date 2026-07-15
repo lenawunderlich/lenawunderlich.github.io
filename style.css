@@ -128,3 +128,100 @@ footer {
     padding: 70px 6%;
   }
 }
+/* PHOTOGRAPHY PAGE */
+
+.photography-page {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 70px 6% 100px;
+}
+
+.photography-intro {
+  max-width: 750px;
+  margin-bottom: 60px;
+}
+
+.photography-intro h1 {
+  margin: 15px 0 25px;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1;
+}
+
+.photography-intro p {
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+
+/* MASONRY IMAGE GRID */
+
+.photo-grid {
+  column-count: 3;
+  column-gap: 24px;
+}
+
+.photo-item {
+  width: 100%;
+  margin: 0 0 24px;
+  break-inside: avoid;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #eeeeee;
+}
+
+.photo-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.photo-item:hover img {
+  transform: scale(1.02);
+  filter: brightness(0.92);
+}
+
+
+/* ACTIVE NAVIGATION LINK */
+
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .photo-grid {
+    column-count: 2;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .photography-page {
+    padding: 50px 5% 70px;
+  }
+
+  .photography-intro {
+    margin-bottom: 40px;
+  }
+
+  .photo-grid {
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  .photo-item {
+    margin-bottom: 18px;
+    border-radius: 8px;
+  }
+}
