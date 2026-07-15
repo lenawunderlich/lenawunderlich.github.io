@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>CV | Lena Wunderlich</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <a class="name" href="index.html">
+      Lena Wunderlich
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="photography.html">Photography</a>
+      <a href="videography.html">Videography</a>
+      <a href="cv.html" class="active">CV</a>
+      <a href="about.html">About me</a>
+    </nav>
+  </header>
+
+  <main class="cv-page">
+
+    <section class="cv-heading">
+      <h1>CV</h1>
+
+      <div class="cv-heading-line"></div>
+
+      <div class="cv-actions">
+        <a
+          class="cv-button"
+          href="documents/cv.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          Open PDF
+        </a>
+
+        <a
+          class="cv-button cv-button-secondary"
+          href="documents/cv.pdf"
+          download
+        >
+          Download CV
+        </a>
+      </div>
+    </section>
+
+    <section class="cv-viewer-container">
+
+      <object
+        class="cv-viewer"
+        data="documents/cv.pdf"
+        type="application/pdf"
+      >
+        <div class="cv-fallback">
+          <p>
+            Your browser cannot display the PDF directly.
+          </p>
+
+          <a
+            class="cv-button"
+            href="documents/cv.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            Open CV as PDF
+          </a>
+        </div>
+      </object>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Lena Wunderlich</p>
+  </footer>
+
+</body>
+</html>
