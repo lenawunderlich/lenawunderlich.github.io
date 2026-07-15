@@ -1,5 +1,8 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
 
@@ -10,138 +13,37 @@
 
   <title>Photography | Lena Wunderlich</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
-<script>
-  async function loadGallery() {
-    const gallery = document.getElementById("photo-grid");
-    const status = document.getElementById("gallery-status");
 
-    /*
-      Diese automatische Erkennung funktioniert für eine Webseite wie:
-
-      benutzername.github.io
-
-      Das dazugehörige Repository muss ebenfalls heissen:
-
-      benutzername.github.io
-    */
-
-    const hostname = window.location.hostname;
-    const username = hostname.split(".")[0];
-    const repository = `${username}.github.io`;
-    const imageFolder = "images";
-
-    const apiUrl =
-      `https://api.github.com/repos/${username}/${repository}/contents/${imageFolder}`;
-
-    try {
-      const response = await fetch(apiUrl, {
-        cache: "no-store"
-      });
-
-      if (!response.ok) {
-        throw new Error(
-          `GitHub returned status ${response.status}`
-        );
-      }
-
-      const files = await response.json();
-
-      if (!Array.isArray(files)) {
-        throw new Error("The images folder could not be read.");
-      }
-
-      const imageFiles = files
-        .filter((file) => {
-          const isFile = file.type === "file";
-          const isImage =
-            /\.(avif|gif|jpe?g|png|webp)$/i.test(file.name);
-
-          return isFile && isImage && file.download_url;
-        })
-        .sort((a, b) =>
-          a.name.localeCompare(
-            b.name,
-            undefined,
-            {
-              numeric: true,
-              sensitivity: "base"
-            }
-          )
-        );
-
-      if (imageFiles.length === 0) {
-        status.textContent =
-          "No images were found in the images folder.";
-        return;
-      }
-
-      const fragment = document.createDocumentFragment();
-
-      imageFiles.forEach((file, index) => {
-        const figure = document.createElement("figure");
-        figure.className = "photo-item";
-
-        const image = document.createElement("img");
-
-        image.src = file.download_url;
-        image.alt = createAltText(file.name);
-
-        /*
-          Die ersten Bilder werden sofort geladen.
-          Weitere Bilder werden erst beim Scrollen geladen.
-        */
-        image.loading = index < 3 ? "eager" : "lazy";
-        image.decoding = "async";
-
-        figure.appendChild(image);
-        fragment.appendChild(figure);
-      });
-
-      gallery.appendChild(fragment);
-      status.remove();
-
-    } catch (error) {
-      console.error("Gallery error:", error);
-
-      status.textContent =
-        "The gallery could not be loaded. Please try again later.";
-    }
-  }
-
-  function createAltText(filename) {
-    const nameWithoutExtension =
-      filename.replace(/\.[^/.]+$/, "");
-
-    const readableName = nameWithoutExtension
-      .replace(/[-_]+/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-
-    if (!readableName) {
-      return "Portfolio photograph";
-    }
-
-    return readableName.charAt(0).toUpperCase()
-      + readableName.slice(1);
-  }
-
-  loadGallery();
-</script>
 <body>
 
   <header>
-    <a class="name" href="index.html">
+    <a class="name" href="{{ '/' | relative_url }}">
       Lena Wunderlich
     </a>
 
     <nav>
-      <a href="index.html">Home</a>
-      <a href="photography.html" class="active">Photography</a>
-      <a href="videography.html">Videography</a>
-      <a href="cv.html">CV</a>
-      <a href="about.html">About me</a>
+      <a href="{{ '/' | relative_url }}">Home</a>
+
+      <a
+        href="{{ '/photography.html' | relative_url }}"
+        class="active"
+      >
+        Photography
+      </a>
+
+      <a href="{{ '/videography.html' | relative_url }}">
+        Videography
+      </a>
+
+      <a href="{{ '/cv.html' | relative_url }}">
+        CV
+      </a>
+
+      <a href="{{ '/about.html' | relative_url }}">
+        About me
+      </a>
     </nav>
   </header>
 
@@ -156,15 +58,43 @@
         A selection of wildlife, travel, documentary and
         street photography.
       </p>
-<section
-  class="photo-grid"
-  id="photo-grid"
-  aria-label="Photography portfolio"
-></section>
+    </section>
 
-<p id="gallery-status" class="gallery-status">
-  Images are loading...
-</p>
+    <section
+      class="photo-grid"
+      aria-label="Photography portfolio"
+    >
+
+      {% assign image_files = site.static_files | sort: "name" %}
+
+      {% for image in image_files %}
+
+        {% assign extension = image.extname | downcase %}
+
+        {% if image.path contains "/images/" %}
+
+          {% if extension == ".jpg"
+             or extension == ".jpeg"
+             or extension == ".png"
+             or extension == ".webp"
+             or extension == ".gif"
+             or extension == ".avif" %}
+
+            <figure class="photo-item">
+              <img
+                src="{{ image.path | relative_url }}"
+                alt="{{ image.basename | replace: '-', ' ' | replace: '_', ' ' | escape }}"
+                loading="lazy"
+              >
+            </figure>
+
+          {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+
+    </section>
 
   </main>
 
