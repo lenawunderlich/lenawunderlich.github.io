@@ -225,3 +225,9 @@ nav a.active {
     border-radius: 8px;
   }
 }
+.gallery-status {
+  margin: 40px 0;
+  text-align: center;
+  color: #666666;
+  font-size: 1rem;
+}
