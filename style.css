@@ -1,6 +1,6 @@
-
-nav a[href="videography.html"] {
-  display: none;
+nav a[href*="videography"] {
+  display: none !important;
+}
 }* {
   box-sizing: border-box;
 }
