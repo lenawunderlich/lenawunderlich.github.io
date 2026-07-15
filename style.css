@@ -1,4 +1,7 @@
-* {
+
+nav a[href="videography.html"] {
+  display: none;
+}* {
   box-sizing: border-box;
 }
 
