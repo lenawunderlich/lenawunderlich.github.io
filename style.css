@@ -231,3 +231,128 @@ nav a.active {
   color: #666666;
   font-size: 1rem;
 }
+/* CV PAGE */
+
+.cv-page {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 60px 3% 100px;
+}
+
+.cv-heading h1 {
+  margin: 0 0 45px;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1;
+}
+
+.cv-heading-line {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 35px;
+  background: #555555;
+}
+
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.cv-button {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid #222222;
+  color: #ffffff;
+  background: #222222;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.cv-button:hover {
+  color: #222222;
+  background: transparent;
+}
+
+.cv-button-secondary {
+  color: #222222;
+  background: transparent;
+}
+
+.cv-button-secondary:hover {
+  color: #ffffff;
+  background: #222222;
+}
+
+
+/* PDF VIEWER */
+
+.cv-viewer-container {
+  width: 100%;
+  height: 85vh;
+  min-height: 700px;
+  padding: 0 70px;
+  overflow: hidden;
+  background: #1f1f1f;
+}
+
+.cv-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #ffffff;
+}
+
+.cv-fallback {
+  padding: 80px 30px;
+  text-align: center;
+  color: #222222;
+  background: #ffffff;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .cv-viewer-container {
+    height: 78vh;
+    min-height: 600px;
+    padding: 0 30px;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .cv-page {
+    padding: 45px 4% 70px;
+  }
+
+  .cv-heading h1 {
+    margin-bottom: 30px;
+  }
+
+  .cv-heading-line {
+    margin-bottom: 25px;
+  }
+
+  .cv-actions {
+    flex-direction: column;
+  }
+
+  .cv-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cv-viewer-container {
+    height: 70vh;
+    min-height: 500px;
+    padding: 0;
+  }
+}
