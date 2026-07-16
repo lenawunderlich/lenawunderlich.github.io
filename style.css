@@ -660,3 +660,57 @@ nav a.active {
     padding: 25px 5%;
   }
 }
+/* BREITENFEHLER AUF ALLEN UNTERSEITEN BEHEBEN */
+
+html {
+  width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+header,
+main,
+footer,
+section,
+div,
+nav {
+  min-width: 0;
+}
+
+.photography-page,
+.about-page,
+.cv-page,
+.content {
+  width: auto;
+  max-width: 1500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.photo-grid,
+.about-layout,
+.cv-viewer-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+img,
+video,
+iframe,
+object,
+embed {
+  display: block;
+  max-width: 100%;
+}
